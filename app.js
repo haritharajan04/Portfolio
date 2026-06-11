@@ -237,7 +237,7 @@ function initVoiceSimulator() {
                 <td>Room 304</td>
                 <td>Water tap leaking</td>
                 <td><span class="prio-tag prio-high">High</span></td>
-                <td><span class="status-tag status-pending" id="new-ticket-status">Pending</span></td>
+                <td><span class="status-tag status-pending">Pending</span></td>
             `;
 
             tableBody.insertBefore(newRow, tableBody.firstChild);
@@ -250,7 +250,7 @@ function initVoiceSimulator() {
 
             // Simulate Warden response workflow state transition
             setTimeout(() => {
-                const statusBadge = document.getElementById("new-ticket-status");
+                const statusBadge = newRow.querySelector(".status-tag");
                 if (statusBadge) {
                     statusBadge.textContent = "Approved";
                     statusBadge.className = "status-tag status-progress";
@@ -260,7 +260,7 @@ function initVoiceSimulator() {
             }, 3000);
 
             setTimeout(() => {
-                const statusBadge = document.getElementById("new-ticket-status");
+                const statusBadge = newRow.querySelector(".status-tag");
                 if (statusBadge) {
                     statusBadge.textContent = "Resolved";
                     statusBadge.className = "status-tag status-success";
